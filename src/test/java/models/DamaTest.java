@@ -1,51 +1,44 @@
 package models;
 
-import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
-public class DamaTest {
+import org.junit.Test;
 
+public class DamaTest{
 
     @Test
-    public void given(){
+    public void givenOKWhenCreateDamaWithWhiteColor(){
 
-        Piece dama = new Dama(Color.WHITE);
+        final Piece dama = new Dama(Color.WHITE);
         assertThat(Color.WHITE, is(dama.getColor()));
 
     }
 
     @Test
-    public void given2(){
+    public void givenBlackWhenCreateDamaWithBlackColor(){
 
-        Piece dama = new Dama(Color.BLACK);
+        final Piece dama = new Dama(Color.BLACK);
         assertThat(Color.WHITE, not(dama.getColor()));
 
     }
 
     @Test
-    public void test3(){
-        Piece peon = new Dama(Color.WHITE);
-    }
-
-
-    @Test
-    private void test4(){
-        Piece dama = new Dama(Color.WHITE);
+    private void givenTrueWhenDamaJumpOneSquare(){
+        final Piece dama = new Dama(Color.WHITE);
         assertThat(true, is(dama.isJumpTo(1)));
     }
 
     @Test
-    private void test5(){
-        Piece dama = new Dama(Color.WHITE);
+    private void givenTrueWhenDamaJumpTwoSquare(){
+        final Piece dama = new Dama(Color.WHITE);
         assertThat(false, is(dama.isJumpTo(2)));
     }
 
     @Test
-    private void test6(){
-        Piece dama = new Dama(Color.WHITE);
+    private void givenTrueWhenDamaJumpTreeSquare(){
+        final Piece dama = new Dama(Color.WHITE);
         assertThat(false, is(dama.isJumpTo(3)));
     }
 }

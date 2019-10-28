@@ -1,35 +1,36 @@
 package models;
 
-import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
-public class TurnTest {
+import org.junit.Test;
+
+public class TurnTest{
 
     @Test
-    public void test1(){
-        Turn turn = new Turn();
+    public void givenWhiteWhenCreatTurn(){
+        final Turn turn = new Turn();
         assertThat(Color.WHITE, is(turn.getTurn()));
     }
 
     @Test
-    public void test2(){
-        Turn turn = new Turn();
+    public void givenBlackAfterCallNextTurn(){
+        final Turn turn = new Turn();
         turn.nextTurn();
         assertThat(Color.BLACK, is(turn.getTurn()));
     }
 
     @Test
-    public void test3(){
-        Turn turn = new Turn();
+    public void givenNotBlackAfterCreateTurn(){
+        final Turn turn = new Turn();
         assertThat(Color.BLACK, is(not(turn.getTurn())));
     }
 
     @Test
-    public void test4(){
-        Turn turn = new Turn();
+    public void givenNotBlackAfterCallTwoTimesNextTurn(){
+        final Turn turn = new Turn();
+        turn.nextTurn();
         turn.nextTurn();
         assertThat(Color.BLACK, is(not(turn.getTurn())));
     }

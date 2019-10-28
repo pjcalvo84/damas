@@ -3,10 +3,10 @@ package controllers;
 import models.Game;
 import models.State;
 
-public class CancelController {
-    public CancelController(Game game, State state) {
+public class CancelController{
+    public CancelController(final Game game, final State state){
     }
 
-    public void resume(boolean b) {
+    public void cancel(final boolean b){
     }
 }

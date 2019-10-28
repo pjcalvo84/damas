@@ -63,12 +63,17 @@ class StartController{
 }
 
 class MoveController{
+    +move(Coordinate, Coordinate...): Error
+    +getPiece(Coordinate): Piece
 }
 
 class CancelController{
+    +cancel(boolean)
 }
 
 class ResumeController{
+    +resume(boolean)
+
 }
 
 class PlayController{
@@ -98,11 +103,14 @@ Board *-down-> "1..2x12" Piece
 Board ..> Error
 
 class Square{
++putPiece(Piece)
++getPiece():Color
 }
 Square  --> "0..1" Piece
 Square *--> Color
 
 class Piece{
+ +isJumpTo(int):boolean
 }
 Piece <|-down- Peon
 Piece <|-down- Dama
@@ -122,6 +130,8 @@ class Turno{
 Turno *--> Color
 
 class State{
++next()
++reset()
 }
 
 class Error{

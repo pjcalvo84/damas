@@ -1,34 +1,35 @@
 package models;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
-
-public class SquareTest {
+public class SquareTest{
 
     @Test
-    private void test(){
+    private void givenWhitePiece(){
 
-        Square square = new Square();
+        final Square square = new Square();
         square.putPiece(new Peon(Color.WHITE));
 
         assertThat(Color.WHITE, is(square.getPiece()));
     }
 
     @Test
-    private void test2(){
+    private void givenBlackPiece(){
 
-        Square square = new Square();
+        final Square square = new Square();
         square.putPiece(new Peon(Color.BLACK));
 
         assertThat(Color.BLACK, is(square.getPiece()));
     }
 
     @Test
-    private void test1(){
+    private void givenNull(){
 
-        Square square = new Square();
+        final Square square = new Square();
 
         assertNull(square.getPiece());
     }
